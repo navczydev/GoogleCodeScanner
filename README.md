@@ -5,14 +5,14 @@
 ## Implementation
 
 Add dependency
-`
+```groovy
 dependencies {
   implementation 'com.google.android.gms:play-services-code-scanner:16.0.0'
 }
-`
+```
 
 Add metadata to download the scanner module automatically
-`
+```xml
 <application ...>
   ...
   <meta-data
@@ -20,23 +20,23 @@ Add metadata to download the scanner module automatically
       android:value="barcode_ui"/>
   ...
 </application>
-`
+```
 
 ## Scan a code
 
 Configure barcode scanner options — GmsBarcodeScannerOptions [Optional]
 
-`
+```kotlin
 val options = GmsBarcodeScannerOptions.Builder()
     .setBarcodeFormats(
         Barcode.FORMAT_QR_CODE,
         Barcode.FORMAT_AZTEC)
     .build()
-` 
+``` 
 
 ## Get an instance of GmsBarcodeScanner
 
-`
+```kotlin
 val scanner = GmsBarcodeScanning.getClient(this)
 
 // Or with a configured options
@@ -47,11 +47,11 @@ val options = GmsBarcodeScannerOptions.Builder()
     .build()
 
 val scanner = GmsBarcodeScanning.getClient(this, options)
-`
+```
 
 ## Initiate the scan ║▌║█║▌│║▌║▌█
 
-`
+```kotlin
 private fun initiateScanner(
     gmsBarcodeScanner: GmsBarcodeScanner,
     onSuccess: (Barcode) -> Unit,
@@ -87,4 +87,4 @@ private fun initiateScanner(
             onFailure(e)
         }
 }
-`
+```
